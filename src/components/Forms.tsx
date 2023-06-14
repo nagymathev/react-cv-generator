@@ -2,9 +2,10 @@ import GeneralForm from "./Forms/GeneralForm.tsx";
 import EduForm from "./Forms/EduForm.tsx";
 import ExpForm from "./Forms/ExpForm.tsx";
 import { useState } from "react";
+import { cvState } from "../App.tsx";
 
-export default function Forms() {
-    const forms = [<GeneralForm />, <EduForm />, <ExpForm />];
+export default function Forms({cvState}: {cvState: cvState}) {
+    const forms = [<GeneralForm cvState={cvState}/>, <EduForm cvState={cvState}/>, <ExpForm cvState={cvState}/>];
     const tabs = ["General Info", "Education", "Work"];
     const [activeForm, setActiveForm] = useState(0);
 
@@ -15,9 +16,7 @@ export default function Forms() {
                     <div
                         key={idx}
                         onClick={() => setActiveForm(idx)}
-                        className={
-                            idx === activeForm ? "tab tab-lifted tab-active" : "tab tab-lifted"
-                        }>
+                        className={`tab tab-lifted ${idx === activeForm ? "tab-active" : ""}`}>
                         {tab}
                     </div>
                 ))}

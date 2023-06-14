@@ -1,4 +1,6 @@
-export default function ExpForm() {
+import { cvState } from "../../App";
+
+export default function ExpForm({cvState}: {cvState: cvState}) {
     return (
         <div className="card bg-base-200 py-2 px-6 pb-6">
             <label className="label text-sm p-1" htmlFor="company-name">

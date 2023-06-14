@@ -1,4 +1,6 @@
-export default function EduForm() {
+import { cvState } from "../../App";
+
+export default function EduForm({cvState}: {cvState: cvState}) {
     return (
         <div className="card bg-base-200 py-2 px-6 pb-6">
             <label className="label text-sm p-1" htmlFor="school-name">
